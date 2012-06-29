@@ -17,7 +17,6 @@
  */
 #include "avcdec_lib.h"
 #include "avcdec_bitstream.h"
-#include "oscl_mem.h"
 #include "avcdec_api.h"
 
 /** see subclause 7.4.2.1 */

@@ -179,7 +179,6 @@ class OsclTrapStack
 //use singleton.
 //Note: singleton-based registry only works for single-threaded
 //scenarios because this implementation assumes a per-thread registry.
-#include "oscl_tls.h"
 #include "oscl_singleton.h"
 #define PVERRORTRAP_REGISTRY_ID OSCL_TLS_ID_PVERRORTRAP
 #define PVERRORTRAP_REGISTRY OsclTLSRegistry

@@ -17,7 +17,7 @@
  */
 #include "avcdec_lib.h"
 #include "avcdec_bitstream.h"
-#include "oscl_mem.h"
+#include <string.h>
 
 AVCDec_Status DecodeIntraPCM(AVCCommonObj *video, AVCDecBitstream *stream)
 {
@@ -189,7 +189,7 @@ AVCDec_Status residual(AVCDecObject *decvid, AVCMacroblock *currMB)
     Qq = video->QPy_div_6;
     Rq = video->QPy_mod_6;
 
-    oscl_memset(video->block, 0, sizeof(int16)*NUM_PIXELS_IN_MB);
+    memset(video->block, 0, sizeof(int16)*NUM_PIXELS_IN_MB);
 
     if (currMB->mbMode == AVC_I16)
     {
@@ -220,7 +220,7 @@ AVCDec_Status residual(AVCDecObject *decvid, AVCMacroblock *currMB)
         start_scan = 1;
     }
 
-    oscl_memset(currMB->nz_coeff, 0, sizeof(uint8)*24);
+    memset(currMB->nz_coeff, 0, sizeof(uint8)*24);
 
     for (mbPartIdx = 0; mbPartIdx < 4; mbPartIdx++)
     {

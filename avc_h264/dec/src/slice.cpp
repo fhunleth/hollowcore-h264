@@ -18,7 +18,7 @@
 /* Note for optimization: syntax decoding or operations related to B_SLICE should be
 commented out by macro definition or function pointers. */
 
-#include "oscl_mem.h"
+#include <string.h>
 #include "avcdec_lib.h"
 #include "avcdec_bitstream.h"
 
@@ -160,7 +160,7 @@ AVCDec_Status DecodeMB(AVCDecObject *decvid)
             currMB->SubMbPartHeight[0] = currMB->SubMbPartHeight[1] =
                                              currMB->SubMbPartHeight[2] = currMB->SubMbPartHeight[3] = currMB->MbPartHeight;
 
-            oscl_memset(currMB->nz_coeff, 0, sizeof(uint8)*NUM_BLKS_IN_MB);
+            memset(currMB->nz_coeff, 0, sizeof(uint8)*NUM_BLKS_IN_MB);
 
             currMB->CBP = 0;
             video->cbp4x4 = 0;
@@ -254,7 +254,7 @@ AVCDec_Status DecodeMB(AVCDecObject *decvid)
         currMB->CBP = 0x3F;
         video->cbp4x4 = 0xFFFF;
         currMB->mb_intra = TRUE;
-        oscl_memset(currMB->nz_coeff, 16, sizeof(uint8)*NUM_BLKS_IN_MB);
+        memset(currMB->nz_coeff, 16, sizeof(uint8)*NUM_BLKS_IN_MB);
         return AVCDEC_SUCCESS;
     }
 
@@ -336,7 +336,7 @@ AVCDec_Status mb_pred(AVCCommonObj *video, AVCMacroblock *currMB, AVCDecBitstrea
     else
     {
 
-        oscl_memset(currMB->ref_idx_L0, 0, sizeof(int16)*4);
+        memset(currMB->ref_idx_L0, 0, sizeof(int16)*4);
 
         /* see subclause 7.4.5.1 for the range of ref_idx_lX */
 //      max_ref_idx = sliceHdr->num_ref_idx_l0_active_minus1;
@@ -393,7 +393,7 @@ AVCDec_Status sub_mb_pred(AVCCommonObj *video, AVCMacroblock *currMB, AVCDecBits
     uint sub_mb_type[4];
     uint code;
 
-    oscl_memset(currMB->ref_idx_L0, 0, sizeof(int16)*4);
+    memset(currMB->ref_idx_L0, 0, sizeof(int16)*4);
 
     for (mbPartIdx = 0; mbPartIdx < 4; mbPartIdx++)
     {
@@ -500,7 +500,7 @@ void InterpretMBModeP(AVCMacroblock *mblock, uint mb_type)
     {
         InterpretMBModeI(mblock, mb_type - 5);
         /* set MV and Ref_Idx codes of Intra blocks in P-slices  */
-        oscl_memset(mblock->mvL0, 0, sizeof(int32)*16);
+        memset(mblock->mvL0, 0, sizeof(int32)*16);
         mblock->ref_idx_L0[0] = mblock->ref_idx_L0[1] = mblock->ref_idx_L0[2] = mblock->ref_idx_L0[3] = -1;
     }
     return ;
@@ -753,7 +753,7 @@ AVCDec_Status ConcealSlice(AVCDecObject *decvid, int mbnum_start, int mbnum_end)
                                          currMB->SubMbPartHeight[2] = currMB->SubMbPartHeight[3] = currMB->MbPartHeight;
         currMB->QPy = 26;
         currMB->QPc = 26;
-        oscl_memset(currMB->nz_coeff, 0, sizeof(uint8)*NUM_BLKS_IN_MB);
+        memset(currMB->nz_coeff, 0, sizeof(uint8)*NUM_BLKS_IN_MB);
 
         currMB->CBP = 0;
         video->cbp4x4 = 0;

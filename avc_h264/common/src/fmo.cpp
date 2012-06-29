@@ -16,7 +16,7 @@
  * -------------------------------------------------------------------
  */
 #include "avclib_common.h"
-#include "oscl_mem.h"
+#include <string.h>
 
 /* see subclause 8.2.2 Decoding process for macroblock to slice group map */
 OSCL_EXPORT_REF AVCStatus FMOInit(AVCCommonObj *video)
@@ -28,7 +28,7 @@ OSCL_EXPORT_REF AVCStatus FMOInit(AVCCommonObj *video)
 
     if (currPPS->num_slice_groups_minus1 == 0)
     {
-        oscl_memset(video->MbToSliceGroupMap, 0, video->PicSizeInMapUnits*sizeof(uint));
+        memset(video->MbToSliceGroupMap, 0, video->PicSizeInMapUnits*sizeof(uint));
     }
     else
     {

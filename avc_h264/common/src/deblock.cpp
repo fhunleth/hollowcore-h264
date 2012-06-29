@@ -16,7 +16,7 @@
  * -------------------------------------------------------------------
  */
 #include "avclib_common.h"
-#include "oscl_mem.h"
+#include <string.h>
 
 #define MAX_QP 51
 #define MB_BLOCK_SIZE 16
@@ -139,13 +139,13 @@ void MBInLoopDeblock(AVCCommonObj *video)
         /* copy to the top 4 lines of the macroblock */
         curL -= (pitch << 2); /* go back 4 lines */
 
-        oscl_memcpy(pred_block + 4, curL, 16);
+        memcpy(pred_block + 4, curL, 16);
         curL += pitch;
-        oscl_memcpy(pred_block + 24, curL, 16);
+        memcpy(pred_block + 24, curL, 16);
         curL += pitch;
-        oscl_memcpy(pred_block + 44, curL, 16);
+        memcpy(pred_block + 44, curL, 16);
         curL += pitch;
-        oscl_memcpy(pred_block + 64, curL, 16);
+        memcpy(pred_block + 64, curL, 16);
         curL += pitch;
 
         curCb -= (pitch << 1); /* go back 4 lines chroma */
@@ -153,23 +153,23 @@ void MBInLoopDeblock(AVCCommonObj *video)
 
         pred_block += 400;
 
-        oscl_memcpy(pred_block + 4, curCb, 8);
+        memcpy(pred_block + 4, curCb, 8);
         curCb += (pitch >> 1);
-        oscl_memcpy(pred_block + 16, curCb, 8);
+        memcpy(pred_block + 16, curCb, 8);
         curCb += (pitch >> 1);
-        oscl_memcpy(pred_block + 28, curCb, 8);
+        memcpy(pred_block + 28, curCb, 8);
         curCb += (pitch >> 1);
-        oscl_memcpy(pred_block + 40, curCb, 8);
+        memcpy(pred_block + 40, curCb, 8);
         curCb += (pitch >> 1);
 
         pred_block += 144;
-        oscl_memcpy(pred_block + 4, curCr, 8);
+        memcpy(pred_block + 4, curCr, 8);
         curCr += (pitch >> 1);
-        oscl_memcpy(pred_block + 16, curCr, 8);
+        memcpy(pred_block + 16, curCr, 8);
         curCr += (pitch >> 1);
-        oscl_memcpy(pred_block + 28, curCr, 8);
+        memcpy(pred_block + 28, curCr, 8);
         curCr += (pitch >> 1);
-        oscl_memcpy(pred_block + 40, curCr, 8);
+        memcpy(pred_block + 40, curCr, 8);
         curCr += (pitch >> 1);
 
         pred_block = video->pred;
@@ -229,14 +229,14 @@ void MBInLoopDeblock(AVCCommonObj *video)
     /* perform copy */
     for (j = 0; j < dst_height; j++)
     {
-        oscl_memcpy(curL, pred_block, dst_width);
+        memcpy(curL, pred_block, dst_width);
         curL += pitch;
         pred_block += 20;
     }
     for (j = 0; j < dst_heightc; j++)
     {
-        oscl_memcpy(curCb, predCb, dst_widthc);
-        oscl_memcpy(curCr, predCr, dst_widthc);
+        memcpy(curCb, predCb, dst_widthc);
+        memcpy(curCr, predCr, dst_widthc);
         curCb += (pitch >> 1);
         curCr += (pitch >> 1);
         predCb += 12;

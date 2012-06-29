@@ -16,7 +16,6 @@
  * -------------------------------------------------------------------
  */
 #include "avclib_common.h"
-#include "oscl_mem.h"
 
 /* input are in the first 16 elements of block,
    output must be in the location specified in Figure 8-6. */

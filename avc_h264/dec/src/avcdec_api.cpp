@@ -21,7 +21,8 @@ This file contains application function interfaces to the AVC decoder library.
 */
 
 #include "oscl_types.h"
-#include "oscl_mem.h"
+#include <string.h>
+
 #include "avcdec_api.h"
 #include "avcdec_lib.h"
 #include "avcdec_bitstream.h"
@@ -216,7 +217,7 @@ OSCL_EXPORT_REF AVCDec_Status   PVAVCDecSeqParamSet(AVCHandle *avcHandle, uint8 
 
         decvid = (AVCDecObject*) avcHandle->AVCObject;
 
-        oscl_memset(decvid, 0, sizeof(AVCDecObject));
+        memset(decvid, 0, sizeof(AVCDecObject));
 
         decvid->common = (AVCCommonObj*)avcHandle->CBAVC_Malloc(userData, sizeof(AVCCommonObj), 0);
         if (decvid->common == NULL)
@@ -225,7 +226,7 @@ OSCL_EXPORT_REF AVCDec_Status   PVAVCDecSeqParamSet(AVCHandle *avcHandle, uint8 
         }
 
         video = decvid->common;
-        oscl_memset(video, 0, sizeof(AVCCommonObj));
+        memset(video, 0, sizeof(AVCCommonObj));
 
         video->seq_parameter_set_id = 9999; /* set it to some illegal value */
 
@@ -298,7 +299,7 @@ OSCL_EXPORT_REF AVCDec_Status   PVAVCDecSeqParamSet(AVCHandle *avcHandle, uint8 
         {
             return AVCDEC_MEMORY_FAIL;
         }
-        oscl_memset(video->decPicBuf, 0, sizeof(AVCDecPicBuffer));
+        memset(video->decPicBuf, 0, sizeof(AVCDecPicBuffer));
     }
 
     /* Decode SPS, allocate video->seqParams[i] and assign video->currSeqParams */

@@ -33,7 +33,7 @@
 
 // system includes for dynamic registry
 #include <dirent.h>
-#include <dlfcn.h>
+#include <stdint.h>
 
 // include common include for determining sizes from limits.h
 #include "osclconfig_limits_typedefs.h"
@@ -53,7 +53,7 @@
 
 // override the common definition for
 #undef OSCL_NATIVE_UINT64_TYPE
-#define OSCL_NATIVE_UINT64_TYPE    u_int64_t
+#define OSCL_NATIVE_UINT64_TYPE    uint64_t
 
 // include the definitions for the processor
 #include "osclconfig_ix86.h"

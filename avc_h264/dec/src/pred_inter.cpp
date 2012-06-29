@@ -16,8 +16,6 @@
  * -------------------------------------------------------------------
  */
 #include "avcdec_lib.h"
-#include "oscl_mem.h"
-
 
 #define CLIP_RESULT(x)      if((uint)x > 0xFF){ \
                  x = 0xFF & (~(x>>31));}

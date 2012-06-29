@@ -16,7 +16,6 @@
  * -------------------------------------------------------------------
  */
 #include "avclib_common.h"
-#include "oscl_mem.h"
 
 OSCL_EXPORT_REF void InitNeighborAvailability(AVCCommonObj *video, int mbNum)
 {
@@ -211,13 +210,13 @@ OSCL_EXPORT_REF void GetMotionVectorPredictor(AVCCommonObj *video, int encFlag)
             if ((MB_A->ref_idx_L0[1] == 0 && MB_A->mvL0[3] == 0) ||
                     (MB_B->ref_idx_L0[2] == 0 && MB_B->mvL0[12] == 0))
             {
-                oscl_memset(currMB->mvL0, 0, sizeof(int32)*16);
+                memset(currMB->mvL0, 0, sizeof(int32)*16);
                 return;
             }
         }
         else
         {
-            oscl_memset(currMB->mvL0, 0, sizeof(int32)*16);
+            memset(currMB->mvL0, 0, sizeof(int32)*16);
             return;
         }
         video->mvd_l0[0][0][0] = 0;

@@ -16,7 +16,6 @@
  * -------------------------------------------------------------------
  */
 #include "avcdec_lib.h"
-#include "oscl_mem.h"
 
 #define CLIP_COMP  *comp++ = (uint8)(((uint)temp>0xFF)? 0xFF&(~(temp>>31)): temp)
 #define CLIP_RESULT(x)      if((uint)x > 0xFF){ \
