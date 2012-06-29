@@ -41,18 +41,7 @@ HEADERS += \
     include/avc_h264/avcdec_api.h \
     include/avc_h264/avcapi_common.h \
     include/oscl/oscl_types.h \
-    include/oscl/oscl_mem_inst.h \
-    include/oscl/oscl_mem_basic_functions.h \
-    include/oscl/oscl_error_codes.h \
-    include/oscl/osclconfig_unix_common.h \
-    include/oscl/osclconfig_memory_check.h \
-    include/oscl/osclconfig_memory.h \
-    include/oscl/osclconfig_limits_typedefs.h \
-    include/oscl/osclconfig_ix86.h \
-    include/oscl/osclconfig_error_check.h \
-    include/oscl/osclconfig_compiler_warnings.h \
     include/oscl/osclconfig_check.h \
-    include/oscl/osclconfig_ansi_memory.h \
     include/oscl/osclconfig.h \
     include/oscl/oscl_base_macros.h \
     oscl/config/linux/osclconfig_util.h \
@@ -68,7 +57,10 @@ HEADERS += \
     oscl/config/shared/osclconfig_lib_check.h \
     oscl/config/shared/osclconfig_io_check.h \
     oscl/config/shared/osclconfig_global_placement_new.h \
-    oscl/config/shared/osclconfig_global_new_delete.h
+    oscl/config/shared/osclconfig_global_new_delete.h \
+    include/oscl/osclconfig_unix_common.h \
+    include/oscl/osclconfig_limits_typedefs.h \
+    include/oscl/osclconfig_ix86.h
 
 OTHER_FILES += \
     README.md
