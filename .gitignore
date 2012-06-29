@@ -1,0 +1,4 @@
+*.o
+lib*.so*
+Makefile
+*.pro.user
