@@ -51,7 +51,6 @@ HEADERS += \
     avc_h264/dec/src/avcdec_bitstream.h \
     avc_h264/common/include/avclib_common.h \
     avc_h264/common/include/avcint_common.h \
-    avc_h264/common/include/avcapi_common.h \
     include/avc_h264/avcdec_api.h \
     include/avc_h264/avcapi_common.h \
     include/oscl/oscl_types.h \
