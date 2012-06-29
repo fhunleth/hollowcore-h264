@@ -30,8 +30,7 @@ SOURCES += \
     avc_h264/common/src/mb_access.cpp \
     avc_h264/common/src/fmo.cpp \
     avc_h264/common/src/dpb.cpp \
-    avc_h264/common/src/deblock.cpp \
-    oscl/osclbase/src/oscl_assert.cpp
+    avc_h264/common/src/deblock.cpp
 
 HEADERS += \
     avc_h264/dec/src/avcdec_lib.h \
@@ -42,18 +41,9 @@ HEADERS += \
     include/avc_h264/avcdec_api.h \
     include/avc_h264/avcapi_common.h \
     include/oscl/oscl_types.h \
-    include/oscl/oscl_singleton.h \
-    include/oscl/oscl_refcounter.h \
     include/oscl/oscl_mem_inst.h \
     include/oscl/oscl_mem_basic_functions.h \
-    include/oscl/oscl_lock_base.h \
-    include/oscl/oscl_exception.h \
-    include/oscl/oscl_error_trapcleanup.h \
-    include/oscl/oscl_error_imp_jumps.h \
-    include/oscl/oscl_error_imp.h \
     include/oscl/oscl_error_codes.h \
-    include/oscl/oscl_error.h \
-    include/oscl/oscl_defalloc.h \
     include/oscl/osclconfig_unix_common.h \
     include/oscl/osclconfig_memory_check.h \
     include/oscl/osclconfig_memory.h \
@@ -65,10 +55,6 @@ HEADERS += \
     include/oscl/osclconfig_ansi_memory.h \
     include/oscl/osclconfig.h \
     include/oscl/oscl_base_macros.h \
-    include/oscl/oscl_base_alloc.h \
-    include/oscl/oscl_base.h \
-    include/oscl/oscl_assert.h \
-    oscl/osclbase/src/oscl_dll.h \
     oscl/config/linux/osclconfig_util.h \
     oscl/config/linux/osclconfig_time.h \
     oscl/config/linux/osclconfig_proc.h \

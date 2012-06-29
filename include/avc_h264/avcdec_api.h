@@ -24,11 +24,8 @@ and necessary type defitionitions and enumerations.
 #ifndef _AVCDEC_API_H_
 #define _AVCDEC_API_H_
 
-#ifndef OSCL_BASE_H_INCLUDED
-#include "oscl/oscl_base.h"
-#endif
-
 #include "avc_h264/avcapi_common.h"
+#include "oscl_base_macros.h"
 
 /**
  This enumeration is used for the status returned from the library interface.

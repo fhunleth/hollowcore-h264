@@ -26,9 +26,7 @@ This file contains declarations of internal functions for common encoder/decoder
 #include "avcint_common.h"
 #endif
 
-#ifndef OSCL_BASE_H_INCLUDED
-#include "oscl_base.h"
-#endif
+#include "oscl_base_macros.h"
 
 /*----------- deblock.c --------------*/
 /**

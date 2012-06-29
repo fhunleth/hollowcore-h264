@@ -392,9 +392,9 @@ void SaveNeighborForIntraPred(AVCCommonObj *video, int offset)
     video->intra_pred_topleft_cr = video->intra_pred_top_cr[(mb_x<<3)+7];
 
     /* then copy to video->intra_pred_top, intra_pred_top_cb, intra_pred_top_cr */
-    /*oscl_memcpy(video->intra_pred_top + (mb_x<<4), pred, 16);
-    oscl_memcpy(video->intra_pred_top_cb + (mb_x<<3), predCb, 8);
-    oscl_memcpy(video->intra_pred_top_cr + (mb_x<<3), predCr, 8);*/
+    /*memcpy(video->intra_pred_top + (mb_x<<4), pred, 16);
+    memcpy(video->intra_pred_top_cb + (mb_x<<3), predCb, 8);
+    memcpy(video->intra_pred_top_cr + (mb_x<<3), predCr, 8);*/
     tmp_ptr = video->intra_pred_top + (mb_x << 4);
     *((uint32*)tmp_ptr) = *((uint32*)pred);
     *((uint32*)(tmp_ptr + 4)) = *((uint32*)(pred + 4));
