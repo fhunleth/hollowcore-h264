@@ -2,3 +2,6 @@
 lib*.so*
 Makefile
 *.pro.user
+object_script.*
+debug
+release

@@ -25,7 +25,7 @@ and necessary type defitionitions and enumerations.
 #define _AVCDEC_API_H_
 
 #include "avc_h264/avcapi_common.h"
-#include "oscl_base_macros.h"
+#include "oscl/oscl_base_macros.h"
 
 /**
  This enumeration is used for the status returned from the library interface.

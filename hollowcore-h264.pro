@@ -1,4 +1,4 @@
-TARGET = hollowcoreh264
+TARGET = hollowcore-h264
 
 # Qt isn't needed for this project
 QT -= core
