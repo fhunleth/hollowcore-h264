@@ -5,3 +5,5 @@ Makefile
 object_script.*
 debug
 release
+Makefile.Debug
+Makefile.Release
