@@ -17,7 +17,7 @@
  */
 #include "avcdec_lib.h"
 #include "avcdec_bitstream.h"
-#include "avcdec_api.h"
+#include "hollowcore-h264/avcdec_api.h"
 
 /** see subclause 7.4.2.1 */
 AVCDec_Status DecodeSPS(AVCDecObject *decvid, AVCDecBitstream *stream)

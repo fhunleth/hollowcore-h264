@@ -29,7 +29,7 @@ noUnderLine or NoUnderLine  is  derived variables defined somewhere else in the 
 #define _AVCDEC_INT_H_
 
 #include "avcint_common.h"
-#include "avcdec_api.h"
+#include "hollowcore-h264/avcdec_api.h"
 
 
 /**

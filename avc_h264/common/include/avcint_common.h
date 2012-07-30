@@ -25,10 +25,10 @@ internal use only.
 #define AVCINT_COMMON_H_INCLUDED
 
 #ifndef OSCL_TYPES_H_INCLUDED
-#include "oscl_types.h"
+#include "hollowcore-h264/oscl_types.h"
 #endif
 #ifndef AVCAPI_COMMON_H_INCLUDED
-#include "avcapi_common.h"
+#include "hollowcore-h264/avcapi_common.h"
 #endif
 
 

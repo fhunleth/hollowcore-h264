@@ -6,10 +6,10 @@ QT -= gui
 
 TEMPLATE = lib
 
+# Exported header files
 INCLUDEPATH += include
-INCLUDEPATH += include/avc_h264
-INCLUDEPATH += include/oscl
 
+# Paths to internal header files
 INCLUDEPATH += avc_h264/common/include
 INCLUDEPATH += avc_h264/dec/include
 INCLUDEPATH += oscl/osclbase/src
@@ -33,15 +33,15 @@ SOURCES += \
     avc_h264/common/src/deblock.cpp
 
 COMMON_HEADERS += \
-    include/avc_h264/avcdec_api.h \
-    include/avc_h264/avcapi_common.h \
-    include/oscl/oscl_types.h \
-    include/oscl/osclconfig_check.h \
-    include/oscl/osclconfig.h \
-    include/oscl/oscl_base_macros.h \
-    include/oscl/osclconfig_unix_common.h \
-    include/oscl/osclconfig_limits_typedefs.h \
-    include/oscl/osclconfig_ix86.h
+    include/hollowcore-h264/avcdec_api.h \
+    include/hollowcore-h264/avcapi_common.h \
+    include/hollowcore-h264/oscl_types.h \
+    include/hollowcore-h264/osclconfig_check.h \
+    include/hollowcore-h264/osclconfig.h \
+    include/hollowcore-h264/oscl_base_macros.h \
+    include/hollowcore-h264/osclconfig_unix_common.h \
+    include/hollowcore-h264/osclconfig_limits_typedefs.h \
+    include/hollowcore-h264/osclconfig_ix86.h
 
 HEADERS += \
     $$COMMON_HEADERS \

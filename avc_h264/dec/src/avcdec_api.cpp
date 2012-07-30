@@ -20,10 +20,10 @@ This file contains application function interfaces to the AVC decoder library.
 @publishedAll
 */
 
-#include "oscl_types.h"
+#include "hollowcore-h264/oscl_types.h"
 #include <string.h>
 
-#include "avcdec_api.h"
+#include "hollowcore-h264/avcdec_api.h"
 #include "avcdec_lib.h"
 #include "avcdec_bitstream.h"
 
