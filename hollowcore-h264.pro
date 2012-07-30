@@ -32,18 +32,24 @@ SOURCES += \
     avc_h264/common/src/dpb.cpp \
     avc_h264/common/src/deblock.cpp
 
-HEADERS += \
-    avc_h264/dec/src/avcdec_lib.h \
-    avc_h264/dec/src/avcdec_int.h \
-    avc_h264/dec/src/avcdec_bitstream.h \
-    avc_h264/common/include/avclib_common.h \
-    avc_h264/common/include/avcint_common.h \
+COMMON_HEADERS += \
     include/avc_h264/avcdec_api.h \
     include/avc_h264/avcapi_common.h \
     include/oscl/oscl_types.h \
     include/oscl/osclconfig_check.h \
     include/oscl/osclconfig.h \
     include/oscl/oscl_base_macros.h \
+    include/oscl/osclconfig_unix_common.h \
+    include/oscl/osclconfig_limits_typedefs.h \
+    include/oscl/osclconfig_ix86.h
+
+HEADERS += \
+    $$COMMON_HEADERS \
+    avc_h264/dec/src/avcdec_lib.h \
+    avc_h264/dec/src/avcdec_int.h \
+    avc_h264/dec/src/avcdec_bitstream.h \
+    avc_h264/common/include/avclib_common.h \
+    avc_h264/common/include/avcint_common.h \
     oscl/config/linux/osclconfig_util.h \
     oscl/config/linux/osclconfig_time.h \
     oscl/config/linux/osclconfig_proc.h \
@@ -57,10 +63,14 @@ HEADERS += \
     oscl/config/shared/osclconfig_lib_check.h \
     oscl/config/shared/osclconfig_io_check.h \
     oscl/config/shared/osclconfig_global_placement_new.h \
-    oscl/config/shared/osclconfig_global_new_delete.h \
-    include/oscl/osclconfig_unix_common.h \
-    include/oscl/osclconfig_limits_typedefs.h \
-    include/oscl/osclconfig_ix86.h
+    oscl/config/shared/osclconfig_global_new_delete.h
 
 OTHER_FILES += \
     README.md
+
+header_files.files = $$COMMON_HEADERS
+header_files.path = /usr/include/hollowcore-h264
+
+target.path = /usr/lib
+INSTALLS += target header_files
+
