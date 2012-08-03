@@ -440,12 +440,12 @@ static void BitstreamReadFFNumber(AVCDecBitstream *stream, uint *result)
 }
 
 OSCL_EXPORT_REF AVCDec_Status   PVAVCDecSEI(AVCHandle *avcHandle, uint8 *nal_unit,
-        int nal_size)
+        int *nal_size)
 {
     AVCDecObject *decvid = (AVCDecObject*) avcHandle->AVCObject;
     AVCCommonObj *video;
     AVCDecBitstream *bitstream;
-    int count;
+    uint count;
 
     if (decvid == NULL)
     {
@@ -465,7 +465,7 @@ OSCL_EXPORT_REF AVCDec_Status   PVAVCDecSEI(AVCHandle *avcHandle, uint8 *nal_uni
     }
 
     /* 2. Initialize bitstream structure*/
-    BitstreamInit(bitstream, nal_unit + 1, nal_size - 1);
+    BitstreamInit(bitstream, nal_unit + 1, *nal_size - 1);
     BitstreamReadFFNumber(bitstream, &video->sei.payload_type);
     BitstreamReadFFNumber(bitstream, &video->sei.payload_size);
 
@@ -474,6 +474,15 @@ OSCL_EXPORT_REF AVCDec_Status   PVAVCDecSEI(AVCHandle *avcHandle, uint8 *nal_uni
         return AVCDEC_FAIL;
     }
 
+    /* Check if the NAL size was miscalculated due to the SEI
+       containing a 001 sequence.
+     */
+    uint bytesRead = 1 + (bitstream->bitcnt / 8);
+    if (*nal_size < bytesRead + video->sei.payload_size + 1) {
+        *nal_size = bytesRead + video->sei.payload_size + 1;
+        BitstreamInit(bitstream, nal_unit + bytesRead, *nal_size - bytesRead - 1);
+
+    }
     for (count = 0; count < video->sei.payload_size; count++)
     {
         uint bits;

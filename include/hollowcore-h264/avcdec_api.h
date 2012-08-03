@@ -155,7 +155,7 @@ extern "C"
             AVCDEC_REDUNDANT_PICTURE if error has been detected in the primary picture and redundant picture is available,
             AVCDEC_CONCEALED_PICTURE if error has been detected and decoder has concealed it."
     */
-    OSCL_IMPORT_REF AVCDec_Status PVAVCDecSEI(AVCHandle *avcHandle, uint8 *nal_unit, int nal_size);
+    OSCL_IMPORT_REF AVCDec_Status PVAVCDecSEI(AVCHandle *avcHandle, uint8 *nal_unit, int *nal_size);
 
     OSCL_IMPORT_REF AVCDec_Status PVAVCDecodeSlice(AVCHandle *avcHandle, uint8 *buffer, int buf_size);
 
