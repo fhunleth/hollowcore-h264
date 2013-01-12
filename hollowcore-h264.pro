@@ -4,6 +4,8 @@ TARGET = hollowcore-h264
 QT -= core
 QT -= gui
 
+
+
 TEMPLATE = lib
 
 # Exported header files
@@ -74,3 +76,6 @@ header_files.path = /usr/include/hollowcore-h264
 target.path = /usr/lib
 INSTALLS += target header_files
 
+CONFIG -= x86_64
+QT_CONFIG -= x86_64
+CONFIG += x86
